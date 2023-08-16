@@ -14,7 +14,7 @@ on:
       ROM:
         description: 'Name of Rom'
         required: true
-        default: 'Generic'
+        default: 'LineageOS'
       VERSION:
         description: 'Android Version of Source'
         required: true
