@@ -6,7 +6,7 @@ on:
       ROM_URL:
         description: 'ROM_URL'
         required: true
-        default: ''
+        default: 'https://mirrorbits.lineageos.org/full/merlinx/20230811/lineage-20.0-20230811-nightly-merlinx-signed.zip'
       TYPE:
         description: 'OS TYPE'
         required: true
@@ -14,11 +14,11 @@ on:
       ROM:
         description: 'Name of Rom'
         required: true
-        default: ''
+        default: 'Generic'
       VERSION:
         description: 'Android Version of Source'
         required: true
-        default: '12'
+        default: '13'
       SF:
         description: 'Upload to Sourceforge'
         required: true
@@ -26,7 +26,7 @@ on:
       WeT:
         description: 'Upload to WeTransfer'
         required: true
-        default: 'true'
+        default: 'false'
       PD:
         description: 'Upload to PixelDrain'
         required: true
@@ -34,7 +34,7 @@ on:
       GHR:
         description: 'Upload to GitHub Release'
         required: true
-        default: 'false'
+        default: 'true'
 
 env:              
   ROM_URL: ${{ github.event.inputs.ROM_URL }}
