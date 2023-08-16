@@ -129,7 +129,7 @@ jobs:
 
        - name: Upload SGSI to GitHub Release... # Credits - https://github.com/softprops
          if: env.GHR == 'true'
-         uses: softprops/action-gh-release@v1
+         uses: ncipollo/release-action@v1.8.6
          with:
            files: SGSIs/output/*.img.gz
            name: SGSI137-${{ env.ROM }}-Android${{ env.VERSION }}
