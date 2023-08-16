@@ -26,7 +26,7 @@ on:
       WeT:
         description: 'Upload to WeTransfer'
         required: true
-        default: 'false'
+        default: 'true'
       PD:
         description: 'Upload to PixelDrain'
         required: true
@@ -34,7 +34,7 @@ on:
       GHR:
         description: 'Upload to GitHub Release'
         required: true
-        default: 'true'
+        default: 'false'
 
 env:              
   ROM_URL: ${{ github.event.inputs.ROM_URL }}
@@ -116,8 +116,9 @@ jobs:
          if: env.WET == 'true' 
          run: |
            cd SGSIs/output
-           curl -sL https://git.io/file-transfer | sh ; sudo chmod a+x transfer
-           ./transfer wet ./*img.gz
+           curl --upload-file ./*img.gz https://transfer.sh/
+           #curl -sL https://git.io/file-transfer | sh ; sudo chmod a+x transfer
+           #./transfer wet ./*img.gz
 
        - name: Upload SGSI to PixelDrain... # Credits - https://github.com/Fornax96
          continue-on-error: true
