@@ -129,12 +129,12 @@ jobs:
            ./pdup ./*img.gz
 
        - name: Upload SGSI to GitHub Release... # Credits - https://github.com/softprops
+         continue-on-error: true
          if: env.GHR == 'true'
          uses: ncipollo/release-action@v1.8.6
-         with:
-           files: SGSIs/output/*.img.gz
-           name: SGSI137-${{ env.ROM }}-Android${{ env.VERSION }}
-           tag_name: ${{ env.VERSION }}
-           #body: Use actions auto bulid
-         env:
-            GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          artifacts: SGSIs/output/*.img.gz
+          name: "${{ steps.config.outputs.os_type }}${{ steps.config.outputs.build_type }}-Android${{ steps.config.outputs.version }}-unpack"
+          tag: "${{ steps.config.outputs.os_type }}${{ steps.config.outputs.build_type }}-${{ steps.config.outputs.version }}-${{ github.run_number }}"
+          bodyFile: "${{ github.workspace}}/SGSI-build-tool/SGSI/build_info.txt"
+          token: ${{ secrets.GITHUB_TOKEN }}
