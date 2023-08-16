@@ -132,7 +132,7 @@ jobs:
          continue-on-error: true
          if: env.GHR == 'true'
          uses: ncipollo/release-action@v1.8.6
-        with:
+         with:
           artifacts: SGSIs/output/*.img.gz
           name: "${{ steps.config.outputs.os_type }}${{ steps.config.outputs.build_type }}-Android${{ steps.config.outputs.version }}-unpack"
           tag: "${{ steps.config.outputs.os_type }}${{ steps.config.outputs.build_type }}-${{ steps.config.outputs.version }}-${{ github.run_number }}"
